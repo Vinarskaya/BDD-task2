@@ -3,17 +3,15 @@ package ru.netology.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.impl.CollectionElement;
-import lombok.val;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
 public class DashboardPage {
-    private SelenideElement personalPage = $("[data-test-id=dashboard]");
-    private ElementsCollection cards = $$(".list__item div");
-    private ElementsCollection buttons = $$(".list__item div button");
-    private SelenideElement updateButton = $("[data-test-id=action-reload] .button__text");
+    private final SelenideElement personalPage = $("[data-test-id=dashboard]");
+    private final ElementsCollection cards = $$(".list__item div");
+    private final ElementsCollection buttons = $$(".list__item div button");
+    private final SelenideElement updateButton = $("[data-test-id=action-reload] .button__text");
 
     public DashboardPage() {
     }
@@ -23,9 +21,9 @@ public class DashboardPage {
         return new RechargeCardPage();
     }
 
-    public DashboardPage UpdateInfo() {
+    public void UpdateInfo() {
         updateButton.click();
-        return new DashboardPage();
+        new DashboardPage();
     }
 
     public void checkBalanceOfFirstCard(String amount) {

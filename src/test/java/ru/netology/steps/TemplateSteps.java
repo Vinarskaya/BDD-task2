@@ -36,15 +36,15 @@ public class TemplateSteps {
     @Тогда("происходит успешная авторизация и пользователь попадает на страницу 'Личный кабинет'")
     public void verifyDashboardPage() {
         dashboardPage.verifyIsDashboardPage();
-    }
-
-    @Когда("пользователь переводит {int} рублей с карты с номером {int} на свою 1 карту с главной страницы, ")
-    public void transferMoney(int amount, int cardNumber) {
         rechargeCardPage = dashboardPage.RechargeFirstCard();
-        rechargeCardPage.transferMoneyToFirstCard(amount, cardNumber);
     }
 
-    @Тогда("баланс его 1 карты из списка на главной странице должен стать {string} рублей.")
+    @Когда("пользователь переводит {int} рублей с карты с номером {int} на свою 1 карту с главной страницы")
+    public void transferMoney(int amount, int cardNumber) {
+        dashboardPage = rechargeCardPage.transferMoneyToFirstCard(amount, cardNumber);
+    }
+
+    @Тогда("баланс его 1 карты из списка на главной странице должен стать {string} рублей")
     public void checkBalanceOfFirstCard(String amount) {
         dashboardPage.checkBalanceOfFirstCard(amount);
     }
