@@ -39,8 +39,8 @@ public class TemplateSteps {
         rechargeCardPage = dashboardPage.RechargeFirstCard();
     }
 
-    @Когда("пользователь переводит {int} рублей с карты с номером {int} на свою 1 карту с главной страницы")
-    public void transferMoney(int amount, int cardNumber) {
+    @Когда("пользователь переводит {string} рублей с карты с номером {string} на свою 1 карту с главной страницы")
+    public void transferMoneyToFirstCard(String amount, String cardNumber) {
         dashboardPage = rechargeCardPage.transferMoneyToFirstCard(amount, cardNumber);
     }
 

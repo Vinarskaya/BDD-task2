@@ -9,9 +9,9 @@ public class RechargeCardPage {
     private final SelenideElement fromField = $("[data-test-id=from] .input__control");
     private final SelenideElement actionTransferButton = $("[data-test-id=action-transfer] .button__content");
 
-    public DashboardPage transferMoneyToFirstCard(int amount, int cardNumber) {
-        amountField.setValue(String.valueOf(amount));
-        fromField.setValue(String.valueOf(cardNumber));
+    public DashboardPage transferMoneyToFirstCard(String amount, String cardNumber) {
+        amountField.setValue(amount);
+        fromField.setValue(cardNumber);
         actionTransferButton.click();
         return new DashboardPage();
     }
