@@ -5,8 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RechargeCardPage {
-    private final SelenideElement amountField = $("[data-test-id=amount] .input__inner");
-    private final SelenideElement fromField = $("[data-test-id=from] .input__control");
+    private final SelenideElement amountField = $("[data-test-id=amount] input");
+    private final SelenideElement fromField = $("[data-test-id=from] input");
     private final SelenideElement actionTransferButton = $("[data-test-id=action-transfer] .button__content");
 
     public DashboardPage transferMoneyToFirstCard(String amount, String cardNumber) {

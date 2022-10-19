@@ -3,6 +3,7 @@ package ru.netology.page;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import lombok.val;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -12,22 +13,23 @@ public class DashboardPage {
     private final ElementsCollection cards = $$(".list__item div");
     private final ElementsCollection buttons = $$(".list__item div button");
     private final SelenideElement updateButton = $("[data-test-id=action-reload] .button__text");
+    private final String balanceStart = "баланс: ";
+    private final String balanceFinish = " р.";
 
     public DashboardPage() {
     }
 
-    public RechargeCardPage RechargeFirstCard() {
+    public RechargeCardPage rechargeCardPage() {
         buttons.first().click();
         return new RechargeCardPage();
     }
 
-    public void UpdateInfo() {
+    public void updateInfo() {
         updateButton.click();
-        new DashboardPage();
     }
 
     public void checkBalanceOfFirstCard(String amount) {
-        UpdateInfo();
+        updateInfo();
         cards.first().shouldHave(Condition.text(amount));
     }
 

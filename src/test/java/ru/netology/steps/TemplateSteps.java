@@ -36,7 +36,7 @@ public class TemplateSteps {
     @Тогда("происходит успешная авторизация и пользователь попадает на страницу 'Личный кабинет'")
     public void verifyDashboardPage() {
         dashboardPage.verifyIsDashboardPage();
-        rechargeCardPage = dashboardPage.RechargeFirstCard();
+        rechargeCardPage = dashboardPage.rechargeCardPage();
     }
 
     @Когда("пользователь переводит {string} рублей с карты с номером {string} на свою 1 карту с главной страницы")
